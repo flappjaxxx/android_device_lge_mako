@@ -26,10 +26,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 PRODUCT_NAME := full_mako
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := Full JellyBean on Mako
+PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/lge/mako/device.mk)
 $(call inherit-product-if-exists, vendor/lge/mako/device-vendor.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ota2.url=87&ID=85535355 \
+    ro.developerid=flappjaxxx \
+    ro.goo.developerid=flappjaxxx \
+    ro.goo.rom=TU2-Nexus \
+    ro.goo.version=$(shell date -u +%Y%m%d) \
+    ro.goo.board=mako
